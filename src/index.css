@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(222 26% 7%);
+  --color-foreground: hsl(210 20% 92%);
+  --color-card: hsl(222 22% 10%);
+  --color-card-foreground: hsl(210 20% 92%);
+  --color-popover: hsl(222 22% 10%);
+  --color-popover-foreground: hsl(210 20% 92%);
+  --color-primary: hsl(199 89% 48%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(222 14% 16%);
+  --color-secondary-foreground: hsl(210 20% 92%);
+  --color-muted: hsl(222 14% 14%);
+  --color-muted-foreground: hsl(215 14% 55%);
+  --color-accent: hsl(199 89% 48%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(0 72% 51%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-success: hsl(142 72% 45%);
+  --color-warning: hsl(38 92% 50%);
+  --color-error: hsl(0 72% 51%);
+  --color-border: hsl(222 14% 18%);
+  --color-input: hsl(222 14% 16%);
+  --color-ring: hsl(199 89% 48%);
+
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+  .btn-destructive {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground transition-colors hover:bg-destructive/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+  .input-field {
+    @apply flex h-10 w-full rounded-md border border-border bg-input px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-transparent transition-all;
+  }
+  .textarea-field {
+    @apply flex min-h-[80px] w-full rounded-md border border-border bg-input px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-transparent transition-all resize-y;
+  }
+  .card-base,
+  .stat-card {
+    @apply rounded-xl border border-border bg-card text-card-foreground;
+  }
+
+  .badge-base,
+  .badge-primary,
+  .badge-success,
+  .badge-warning,
+  .badge-error,
+  .badge-muted {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .badge-primary {
+    @apply bg-primary/15 text-primary;
+  }
+  .badge-success {
+    @apply bg-success/15 text-success;
+  }
+  .badge-warning {
+    @apply bg-warning/15 text-warning;
+  }
+  .badge-error {
+    @apply bg-error/15 text-error;
+  }
+  .badge-muted {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .label-text {
+    @apply text-sm font-medium text-foreground mb-1.5 block;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:bg-secondary hover:text-foreground;
+  }
+  .nav-link-active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .stage-applied,
+  .stage-screening,
+  .stage-interview,
+  .stage-offer,
+  .stage-hired,
+  .stage-rejected {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .stage-applied {
+    @apply bg-blue-500/15 text-blue-400;
+  }
+  .stage-screening {
+    @apply bg-cyan-500/15 text-cyan-400;
+  }
+  .stage-interview {
+    @apply bg-amber-500/15 text-amber-400;
+  }
+  .stage-offer {
+    @apply bg-green-500/15 text-green-400;
+  }
+  .stage-hired {
+    @apply bg-emerald-500/15 text-emerald-400;
+  }
+  .stage-rejected {
+    @apply bg-red-500/15 text-red-400;
+  }
+
+  .stat-card {
+    @apply p-5 transition-all hover:border-primary/30;
+  }
+  .kanban-column {
+    @apply flex w-72 flex-col gap-3 rounded-xl border border-border bg-card/50 p-3;
+  }
+  .kanban-card {
+    @apply cursor-grab rounded-lg border border-border bg-card p-3 transition-all hover:border-primary/40 hover:shadow-lg active:cursor-grabbing;
+  }
+  .sidebar-base {
+    @apply flex h-screen w-60 flex-col border-r border-border bg-card;
+  }
+  .table-header {
+    @apply text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+  .table-cell {
+    @apply px-4 py-3 text-sm text-foreground;
+  }
+}
